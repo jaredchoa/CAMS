@@ -1,0 +1,5 @@
+ID,Name,Faculty,Location,description,campStartDate,campEndDate,regCloseDate,totalSlots,committeeSlots,visibility,staffID
+C1,Andromeda,SCSE,North Spine,scse camp,2023-12-18,2023-12-20,2023-11-30,20,5,1,HUKUMAR
+C2,Horizon,ADM,South Spine,nbs camp,2023-12-20,2023-12-23,2023-11-30,20,5,1,OURIN
+C3,Galaxity,SCSE,NTU,available for all!,2023-12-12,2023-12-15,2023-11-25,30,8,1,ANWIT
+C4,Starstream,EEE,North Spine,eee camp,2023-12-16,2023-12-18,2023-11-25,20,5,0,UPAM
