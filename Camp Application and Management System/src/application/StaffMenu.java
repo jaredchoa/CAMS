@@ -6,6 +6,7 @@ import common.util.*;
 import common.model.*;
 import java.time.*;
 import java.time.format.*;
+import fileIO.*;
 
 
 public class StaffMenu {
@@ -23,7 +24,8 @@ public class StaffMenu {
 			System.out.println("2. View Enquiries");
 			System.out.println("3. View Suggestions");  //View all suggestions -> can accept or reject suggestions
 			System.out.println("4. Change password");
-			System.out.println("5. Logout");
+			System.out.println("5. Generate staff report");
+			System.out.println("6. Logout");
 			System.out.println("+------------------------------------------------------------+");
 			System.out.print("Please choose an option: ");
 			
@@ -56,7 +58,11 @@ public class StaffMenu {
 				System.out.println("Please relogin.");
 				logout = true; // force logout to verify effect
 				break;
-			case 5:
+			case 5:	//generate staff report
+				generateReport(staff, scanner);
+				break;
+
+			case 6:
 				logout = true;
 				break;
 			default:
@@ -64,6 +70,17 @@ public class StaffMenu {
 			}
 		}
 	}
+
+	private static void generateReport(Staff staff, Scanner scanner) {
+		int choice = 0;
+		System.out.println("Please choose an option:");
+		System.out.println("1. Generate all students");
+		System.out.println("2. Generate all committee members");
+		System.out.println("3. Generate all non-committee members");
+		choice = ReadChecker.checkInt();
+		writeReport.generateStaffReport(staff, scanner, choice);
+	}
+
 
 	public static void ViewAllCamps(Staff staff, Scanner scanner){
 		//mainApp.campData.printCampData(staff, true);		//false being view all camps available to students' faculty

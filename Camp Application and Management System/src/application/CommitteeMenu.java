@@ -3,7 +3,7 @@ package application;
 import java.util.Scanner;
 
 import common.util.ReadChecker;
-
+import fileIO.writeReport;
 import model.*;
 
 import java.util.*;
@@ -380,142 +380,10 @@ public class CommitteeMenu {
 		System.out.println("3. Non-Committee Attendees");
 
 		System.out.println("4. Back");
-
-		ArrayList<Student> attendees = new ArrayList<Student>();
-
-		ArrayList<Student> committeeMembers = new ArrayList<Student>();
-
-		ArrayList<Student> allStudents = new ArrayList<Student>();
-
-		String committeeID = student.getCommitteeCampID();
-
-		Camp attendeeCamp = mainApp.campData.getCamp(committeeID);
-
-		attendees = attendeeCamp.getStudentList();
-
-		allStudents = attendees;
-
-		Camp committeecamp = mainApp.campData.getCamp(committeeID);
-
-		committeeMembers = committeecamp.getCommitteeList();
-
-		// need exception handling
-
 		int choice = ReadChecker.checkInt();
+		Camp camp = mainApp.campData.getCamp(student.getCommitteeCampID());
 
-		switch (choice) {
-
-		case 1:
-
-			if (allStudents.isEmpty()) {
-
-				System.out.println("Noone is attending this camp.");
-
-				return;
-
-			}
-
-			System.out.println("These are the all the attendees:");
-
-			for (int i = 0; i < allStudents.size(); i++) {
-
-				System.out.println((i + 1) + ")" + allStudents.get(i).getUserName());
-
-				if (allStudents.get(i).getCommitteeCampID() == null) {
-
-					System.out.print(" Role: Attendee\n");
-
-					continue;
-
-				}
-
-				else if (allStudents.get(i).getCommitteeCampID().equals(committeeID)) {
-
-					System.out.print(" Role: Committee Member\n");
-
-				}
-
-			}
-
-			break;
-
-		case 2:
-
-			if (committeeMembers.isEmpty()) {
-
-				System.out.println("There are no Committee Members for this camp.");
-
-				return;
-
-			}
-
-			System.out.println("These are the Committee Members:");
-
-			for (int i = 0; i < committeeMembers.size(); i++) {
-
-				System.out.println((i + 1) + ")" + committeeMembers.get(i).getUserName() + "Role: Committee Member");
-
-			}
-
-			break;
-
-		case 3:
-
-			if (attendees.isEmpty()) {
-
-				System.out.println("There are no normal attendees for this camp.");
-
-				return;
-
-			}
-
-			System.out.println("These are the non-Committee Member attendees:");
-
-			for (int i = 0; i < attendees.size(); i++) { // Filter out to just the students excluding committee members
-
-				for (int j = 0; j < committeeMembers.size(); j++) {
-
-					if (attendees.get(i).getUserID().equals(committeeMembers.get(j).getUserID())) {
-
-						attendees.remove(i);
-
-					}
-
-				}
-
-			}
-
-			for (int i = 0; i < attendees.size(); i++) {
-
-				System.out.println((i + 1) + ")" + attendees.get(i).getUserName() + "\n Role: Attendee");
-
-			}
-
-			break;
-
-		case 4:
-
-			return;
-
-		}
-
-		// try {
-
-		// FileWriter myWriter = new FileWriter("filename.txt");
-
-		// myWriter.write("Files in Java might be tricky, but it is fun enough!");
-
-		// myWriter.close();
-
-		// System.out.println("Successfully wrote to the file.");
-
-		// } catch (IOException e) {
-
-		// System.out.println("An error occurred.");
-
-		// e.printStackTrace();
-
-		// }
+		writeReport.generateCommitteeReport(camp, student, scanner, choice);
 
 	}
 
