@@ -2,6 +2,9 @@ package application;
 
 import java.util.Scanner;
 
+import Handlers.CommitteeHandler;
+import Handlers.CommitteeStaffEnquiryHandler;
+import HandlersInterfaces.CommitteeHandlerInterface;
 import common.util.ReadChecker;
 import fileIO.writeReport;
 import model.*;
@@ -113,10 +116,6 @@ public class CommitteeMenu {
 
 	private static void viewSuggestions(Student student, Scanner scanner) {
 
-		String campcommID = student.getCommitteeCampID();
-
-		Camp committeecamp = mainApp.campData.getCamp(campcommID);
-
 		ArrayList<Suggestion> suggestionList = student.getCommitteeSuggestions();
 
 		printSuggestions(suggestionList);
@@ -140,102 +139,19 @@ public class CommitteeMenu {
 			switch (subchoice) {
 
 			case 1:
-
-				System.out.print("Enter your suggestion: ");
-
-				String suggestionSubmit = scanner.nextLine();
-
-				Suggestion suggestion1 = mainApp.suggestionData.addSuggestion(suggestionSubmit, student, campcommID);
-
-				student.addCommitteeSuggestions(suggestion1);
-
-				committeecamp.setSuggestionList(suggestion1);
-
-				System.out.println("\nYour suggestion (ID: " + suggestion1.getSuggestionID()
-						+ ") has been successfully submitted.\n");
-
+				CommitteeHandler.SubmitSuggestion(scanner, student, mainApp.suggestionData, mainApp.campData);
 				printSuggestions(suggestionList);
 
 				break;
 
 			case 2:
-
-				System.out.print("Input the ID of suggestion you wish to edit: ");
-
-				String suggestionIDSubmit = scanner.nextLine();
-
-				Suggestion suggestion2 = mainApp.suggestionData.getSuggestionByID(suggestionIDSubmit);
-
-				if (suggestion2 == null) {
-
-					System.out.println("Suggestion doesn't exist");
-
-					return;
-
-				}
-
-				if (suggestion2.getApprovedBy() != null) {
-
-					System.out.println("You cannot edit this suggestion as it has been approved.");
-
-					return;
-
-				}
-
-				else if (suggestion2.getApprovedBy() == null) {
-
-					System.out.print("Enter your new suggestion: ");
-
-					String suggestionSubmit2 = scanner.nextLine();
-
-					suggestion2.setSuggestion(suggestionSubmit2);
-
-					System.out.println("Your suggestion has been successfully edited.");
-
-				}
-
+				CommitteeHandler.EditSuggestion(scanner, student, mainApp.suggestionData);
 				printSuggestions(suggestionList);
 
 				break;
 
 			case 3:
-
-				System.out.print("Input the ID of suggestion you wish to delete: ");
-
-				String suggestionIDSubmit3 = scanner.nextLine();
-
-				Suggestion suggestion3 = mainApp.suggestionData.getSuggestionByID(suggestionIDSubmit3);
-
-				if (suggestion3 == null) {
-
-					System.out.println("Suggestion doesn't exist");
-
-					return;
-
-				}
-
-				if (suggestion3.getApprovedBy() != null) {
-
-					System.out.println("You cannot edit this suggestion as it has been approved.");
-
-					return;
-
-				}
-
-				else {
-
-					ArrayList<Suggestion> suggestionlist = committeecamp.getSuggestionList();
-
-					suggestionlist.remove(suggestion3);
-
-					committeecamp.setSuggestionList(suggestionlist);
-
-					student.removeCommitteeSuggestions(suggestion3);
-
-					System.out.println("Your suggestion has been successfully deleted.");
-
-				}
-
+				CommitteeHandler.DeleteSuggestion(scanner, student, mainApp.suggestionData, mainApp.campData);
 				printSuggestions(suggestionList);
 
 				break;
@@ -324,36 +240,10 @@ public class CommitteeMenu {
 				switch (subchoice) {
 
 				case 1:
-
-					System.out.print("Input the ID of enquiry you wish to reply: ");
-
-					String enquiryIDSubmit = scanner.nextLine();
-
-					Enquiry enquiry = mainApp.enquiryData.getEnquiryByID(enquiryIDSubmit); // if ID is invalid return
-
-					if (enquiry == null) {
-
-						System.out.println("Invalid ID, Enquiry doesn't exist.");
-
-					}
-					else {
-						System.out.print("Enter your reply: ");
-
-						String enquirySubmit = scanner.nextLine();
-
-						enquiry.setReply(enquirySubmit);
-
-						enquiry.printEnquiry();
-
-						System.out.println("The enquiry with an ID of " + enquiry.getEnquiryID()
-								+ "has been successfully replied to.");
-
-						break;
-					}
-
+					CommitteeStaffEnquiryHandler.ReplyEnquiry(scanner, mainApp.enquiryData);
+					break;
 
 				case 2:
-
 					return;
 
 				default:

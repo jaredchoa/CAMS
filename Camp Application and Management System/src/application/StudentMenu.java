@@ -3,7 +3,7 @@ package application;
 import java.util.Scanner;
 
 import common.util.ReadChecker;
-
+import controller.manager.StudentEnquiryHandler;
 import model.*;
 
 public class StudentMenu {
@@ -311,84 +311,14 @@ public class StudentMenu {
 
 		case 1:
 
-			System.out.print("Input ID of camp you wish to submit enquiry of: ");
-
-			String campIDSubmit = scanner.nextLine();
-
-			Camp campSubmit = mainApp.campData.getCamp(campIDSubmit);
-
-			if (!student.getRegisteredCamps().contains(campSubmit)) {
-
-				System.out.println("You have not registered for this camp. Please try again.");
-
-				break;
-
-			}
-
-			else {
-
-				System.out.print("Input your enquiry: ");
-
-				String enquirySubmit = scanner.nextLine();
-
-				Enquiry newEnquiry = mainApp.enquiryData.addEnquiry(enquirySubmit, student, campIDSubmit); // add to
-																											// enquiryData
-
-				student.addStudentEnquiries(newEnquiry); // add to student's list
-
-				mainApp.campData.getCamp(campIDSubmit).addEnquiriesList(newEnquiry); // add to camp's list
-
-				System.out.println(
-						"The enquiry has been successfully submitted with an ID of " + newEnquiry.getEnquiryID());
-
-			}
-
+			StudentEnquiryHandler.SubmitEnquiry(scanner, student, mainApp.campData, mainApp.enquiryData);
 			break;
 
 		case 2:
 
 			// display all camps student registered to
 
-			mainApp.campData.printCampData(student, true);
-
-			System.out.print("Input ID of camp you wish to edit enquiry of: ");
-
-			String campIDEdit = scanner.nextLine();
-
-			Camp campEdit = mainApp.campData.getCamp(campIDEdit);
-
-			if (!student.getRegisteredCamps().contains(campEdit)) {
-
-				System.out.println("You have not registered for this camp. Please try again.");
-
-				break;
-
-			}
-
-			else {
-
-				// display enquiries corresponding to the above camp & students
-
-				if (mainApp.enquiryData.ViewByStudent(student, campIDEdit) == 0) {
-
-					System.out.println("You have not submitted any enquiries for this camp.");
-
-					break;
-
-				}
-
-				System.out.print("\nInput ID of enquiry you wish to edit: ");
-
-				String enquiryIDEdit = scanner.nextLine();
-
-				System.out.print("\nInput edited enquiry: ");
-
-				String enquiryEdit = scanner.nextLine();
-
-				mainApp.enquiryData.getEnquiryByID(enquiryIDEdit).setEnquiry(enquiryEdit);
-
-			}
-
+			StudentEnquiryHandler.EditEnquiry(scanner, student, mainApp.campData, mainApp.enquiryData);
 			break;
 
 		case 3:
