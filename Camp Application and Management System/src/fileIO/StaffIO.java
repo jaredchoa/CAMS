@@ -50,7 +50,7 @@ public class StaffIO {
 	}
 	
 	/**
-	 * @param staffData all staff data
+	 * @param StaffData all staff data
 	 * @param path file path to write staff data to csv
 	 */
 	public static void writeCSV(StaffManager StaffData, String path) {
