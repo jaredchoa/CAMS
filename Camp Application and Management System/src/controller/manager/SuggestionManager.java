@@ -7,8 +7,14 @@ import model.*;
  */ 
 public class SuggestionManager {
 	
+	/**
+	 * stores suggestions
+	 */
 	public static Map<String, Suggestion> suggestions;
 	
+	/**
+	 * constructor for suggestionmanager
+	 */
 	public SuggestionManager(){
 		suggestions = new HashMap<>();
 	}
@@ -43,9 +49,6 @@ public class SuggestionManager {
 	}
 	
 	
-	/** 
-	 * @return Map<String, Suggestion> list of all the suggestion data
-	 */
 	public Map<String, Suggestion> getSuggData() {
 		return suggestions;
 	}
@@ -53,12 +56,11 @@ public class SuggestionManager {
 	
 
 
-//	public int ViewByStudent(Student student, String campID) {
-//		return;
-//	}
-/** 
- * @return int number of suggestions
- */
+
+	/**
+	 * @param staffCamp camp of staff
+	 * @return number of suggestions
+	 */
 	public int ViewByStaff(Camp staffCamp) {
 		int count = 0;
 		for (Suggestion suggestion: staffCamp.getSuggestionList()) {

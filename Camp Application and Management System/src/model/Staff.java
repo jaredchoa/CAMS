@@ -22,6 +22,9 @@ public class Staff extends User {
 		this.createdCamp = null;
 	}
 	
+	/**
+	 * view created camp
+	 */
 	public void viewCreatedCamp() {
 		if(createdCamp != null) {
 			createdCamp.printCamp();
@@ -32,28 +35,29 @@ public class Staff extends User {
 	}
 	
 	/** 
-	 * @param Camp camp object
+	 * @return camp camp object
 	 */
 	public Camp getCreatedCamp() {
 		return createdCamp;
 	}
 
-	/** 
-	 * @param Camp camp object
+
+	/**
+	 * @param createdCamp created camp
 	 */
 	public void setCreatedCamp(Camp createdCamp) {
 		this.createdCamp = createdCamp;
 	}
 	
 	/** 
-	 * @param return campID
+	 * @return return campID
 	 */
 	public String getCampID() {
 		return this.getCreatedCamp().getCampID();
 	}
 
 	/** 
-	 * @param return UserType
+	 * @return UserType
 	 */
 	public StudentOrStaff getUserType() {
 		return UserType;

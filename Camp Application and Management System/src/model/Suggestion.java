@@ -8,6 +8,9 @@ import common.model.SuggestionStatus;
  * class stores information for suggestion
  */
 public class Suggestion {
+	/**
+	 * used for suggestion unique ID
+	 */
 	public static int SUGGESTIONCOUNTER = 1;
 	private String SuggestionID;
 	private String Suggestion;
@@ -148,11 +151,17 @@ public class Suggestion {
 		CreatedBy = createdBy;
 	}
 
+	/**
+	 * print suggestion for staff view
+	 */
 	public void printSuggestionStaff() {
 		System.out.println("\nSuggestionID: " + this.getSuggestionID() + "\nSuggestion: " + this.getSuggestion()
 				+ "\nCreated by: " + this.getCreatedBy().getUserID());
 	}
 
+	/**
+	 * print suggestion for student view
+	 */
 	public void printSuggestionStudent() {
 		System.out.println("\nSuggestionID: " + this.getSuggestionID() + "\nSuggestion: " + this.getSuggestion());
 		if (this.status!=SuggestionStatus.APPROVED) {

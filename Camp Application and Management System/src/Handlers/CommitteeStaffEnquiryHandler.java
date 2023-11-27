@@ -6,6 +6,9 @@ import application.mainApp;
 import controller.manager.EnquiryManager;
 import model.Enquiry;
 
+/**
+ * enquiry handler
+ */
 public class CommitteeStaffEnquiryHandler {
 
 	

@@ -40,9 +40,7 @@ public class Student extends User{
 	
 	
 	
-	/** 
-	 * @return ArrayList<Camp> List of camps student has withdrawn from
-	 */
+
 	public ArrayList<Camp> getWithdrawnCamps() {
 		return WithdrawnCamps;
 	}
@@ -70,9 +68,7 @@ public class Student extends User{
 	}
 
 	
-	/** 
-	 * @return ArrayList<Camp> List of camps student has registered for
-	 */
+
 	public ArrayList<Camp> getRegisteredCamps() {
 		return RegisteredCamps;
 	}
@@ -124,6 +120,9 @@ public class Student extends User{
 		return CommitteeCampID;
 	}
 	
+	/**
+	 * unassign commitee memebr
+	 */
 	public void removeCommitteeCampID() {
 		this.CommitteeCampID = null;
 	}
@@ -137,9 +136,7 @@ public class Student extends User{
 	}
 
 	
-	/** 
-	 * @return ArrayList<Enquiry> student enquiries
-	 */
+
 	public ArrayList<Enquiry> getStudentEnquiries() {
 		return StudentEnquiries;
 	}
@@ -190,9 +187,7 @@ public class Student extends User{
 	}
 
 	
-	/** 
-	 * @return ArrayList<Suggestion> committee suggestions
-	 */
+
 	public ArrayList<Suggestion> getCommitteeSuggestions() {
 		return CommitteeSuggestions;
 	}

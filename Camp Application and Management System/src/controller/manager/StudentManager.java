@@ -14,6 +14,9 @@ public class StudentManager {
     private Map<String, Student> students;
     
 
+    /**
+     * constructor for student manager
+     */
     public StudentManager() {
         students = new HashMap<>();
     }
@@ -41,9 +44,7 @@ public class StudentManager {
     }
 
 	
-    /** 
-     * @return Map<String, Student> list of all the student data
-     */
+
     public Map<String, Student> getStudentData() {
 		return students;
 	}

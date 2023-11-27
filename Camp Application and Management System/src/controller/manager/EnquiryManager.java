@@ -13,15 +13,20 @@ import controller.*;
  */ 
 public class EnquiryManager {
 	
+	/**
+	 * stores enquiry data
+	 */
 	public Map<String, Enquiry> enquiries;
 	
 	
-	/** 
-	 * @return Map<String, Enquiry> list of all the enquiry data
-	 */
 	public Map<String, Enquiry> getEnquiryData() {
 		return enquiries;
 	}	
+	
+	
+	/**
+	 * constructor for enquirymanger
+	 */
 	public EnquiryManager(){
 		enquiries = new HashMap<>();
 	}
@@ -105,9 +110,7 @@ public class EnquiryManager {
 	}
 
 	
-	/** 
-	 * @return Map<String, Enquiry> list of all the enquiries
-	 */
+
 	public Map<String, Enquiry> getEnquiries() {
 		return enquiries;
 	}

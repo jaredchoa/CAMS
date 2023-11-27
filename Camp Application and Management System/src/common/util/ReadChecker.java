@@ -7,6 +7,9 @@ import java.util.Scanner;
 	 */ 
 public class ReadChecker {
 	
+	/**
+	 * @return checked integer
+	 */
 	public static int checkInt() {		
 			Scanner sc = new Scanner(System.in);
 			try {
@@ -19,6 +22,11 @@ public class ReadChecker {
 			}
 	}
 	
+	/**
+	 * @param min smallest range
+	 * @param max largest range
+	 * @return verified integer
+	 */
 	public static int verifyInt(int min, int max) {
 		int input=-1;
 		while (true) {

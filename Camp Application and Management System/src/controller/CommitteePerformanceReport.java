@@ -10,10 +10,16 @@ public class CommitteePerformanceReport {
 
 	private Camp camp;
 
+	/**
+	 * @param camp camp
+	 */
 	public CommitteePerformanceReport(Camp camp) {
 		this.camp = camp;
 	}
 	
+	/**
+	 * generate report
+	 */
 	public void GenerateReport()
 	{
 		ArrayList<Student> CommitteeMembers = camp.getCommitteeList();

@@ -96,6 +96,9 @@ public abstract class User {
 		return acceptable;
 	}
 	
+	/**
+	 * change password
+	 */
 	public void changePassword() {
 		Scanner sc = new Scanner(System.in);
 		String newPass;

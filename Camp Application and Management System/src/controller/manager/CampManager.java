@@ -4,15 +4,18 @@ import java.util.Map;
 import java.util.HashMap;
 import model.*;
 
+
+import common.model.*;
 /** 
  * class to manage all the camps
  */ 
-import common.model.*;
-
 public class CampManager {
 	
 	private Map<String, Camp> campData;
 	
+	/**
+	 * camp manager constructor
+	 */
 	public CampManager() {
 		
 		 // constructor for hashmap to store our Camps
@@ -20,9 +23,7 @@ public class CampManager {
 	}
 	
 	
-	/** 
-	 * @return Map<String, Camp> list of camp data
-	 */
+
 	public Map<String, Camp> getcampData() {
 		return campData;
 	}
@@ -126,10 +127,7 @@ public class CampManager {
 //					);
 //		}
 //	}
-/** 
- *  @param faculty faculty object
- * @return Map<String, Camp> list of camp data
- */
+
 	public Map<String, Camp> facultyFilter (Faculty faculty) {
 		
 		Map<String, Camp> campFiltered = new HashMap<>();

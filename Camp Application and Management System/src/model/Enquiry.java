@@ -4,6 +4,9 @@ package model;
  * Class that stores information about enquiry
  */
 public class Enquiry {
+	/**
+	 * used for enquiry unique ID
+	 */
 	public static int ENQUIRYCOUNTER = 1;
 	
 	private String Enquiry;

@@ -19,7 +19,6 @@ public class CommitteeHandler  {
 	 * @param scanner scanner object
 	 * @param student student object
 	 * @param SuggestionData SuggestionManager object
-	 * @param CampData CampManager object
 	 */
 	public static void EditSuggestion(Scanner scanner, Student student, SuggestionManager SuggestionData) {
 		// TODO Auto-generated method stub

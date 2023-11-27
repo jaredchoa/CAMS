@@ -10,6 +10,9 @@ import java.util.ArrayList;
 
 public class Camp {
 	
+	/**
+	 * used for camp unique ID
+	 */
 	public static int CAMPCOUNTER = 1;
 	
 	private String campID;

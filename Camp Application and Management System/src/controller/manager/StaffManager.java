@@ -11,6 +11,9 @@ public class StaffManager {
 	
     private Map<String, Staff> staff;
 
+    /**
+     * constructor for staffmanager
+     */
     public StaffManager() {
         staff = new HashMap<>();
     }
@@ -54,9 +57,6 @@ public class StaffManager {
     }
     
 	
-	/** 
-	 * @return Map<String, Staff> list of all the staff data
-	 */
 	public Map<String, Staff> getStaffData() {
 		return staff;
 	}
