@@ -42,10 +42,10 @@ public class mainApp {
 		//assingment
 		campAssignment.readCSV(campData, studentData, "data/campAssign.csv");
 		
-		for (Map.Entry<String, Student> pair : studentData.getStudentData().entrySet()) {
-			Student student = pair.getValue();
-			System.out.println("name: " + student.getUserName());
-		}
+//		for (Map.Entry<String, Student> pair : studentData.getStudentData().entrySet()) {
+//			Student student = pair.getValue();
+//			System.out.println("name: " + student.getUserName());
+//		}
 //		for (Map.Entry<String, Camp> pair : campData.getcampData().entrySet()) {
 //			Camp camp = pair.getValue();
 //			System.out.println("name: " + camp.getCampName());
