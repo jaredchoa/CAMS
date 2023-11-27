@@ -41,9 +41,13 @@ public class writeReport {
 						writechoiceone.write(" Role: Attendee\n");
 						continue;
 					}
-					else if (allStudents.get(i).getCommitteeCampID().equals(committeeID)) {
+					else if(allStudents.get(i).getCommitteeCampID().equals(committeeID)){
 						System.out.print(" Role: Committee Member\n");
 						writechoiceone.write(" Role: Committee Member\n");
+					}
+					else{
+						System.out.print(" Role: Attendee\n");
+						writechoiceone.write(" Role: Attendee\n");
 					}
 				}
 				writechoiceone.close();
@@ -59,9 +63,16 @@ public class writeReport {
 			FileWriter writechoicetwo = new FileWriter("Camp Application and Management System/CommitteeReport(committeemembers).txt");
 				System.out.println("These are the Committee Members:");
 				writechoicetwo.write("These are the Committee Members:\n");
-				for (int i = 0; i < committeeMembers.size(); i++) {
-					System.out.println((i + 1) + ")" + committeeMembers.get(i).getUserName() + "Role: Committee Member");
-					writechoicetwo.write((i + 1) + ")" + committeeMembers.get(i).getUserName() + "Role: Committee Member");
+				for (int i = 0; i < allStudents.size(); i++) {
+					writechoicetwo.write((i + 1) + ")" + allStudents.get(i).getUserName());
+					System.out.println((i + 1) + ")" + allStudents.get(i).getUserName());
+					if (allStudents.get(i).getCommitteeCampID() == null) {
+						continue;
+					}
+					else {
+						System.out.print(" Role: Committee Member\n");
+						writechoicetwo.write(" Role: Committee Member\n");
+					}
 				}
 				writechoicetwo.close();
 			}
@@ -76,16 +87,15 @@ public class writeReport {
 
 				System.out.println("These are the non-Committee Member attendees:");
 				writechoicethree.write("These are the non-Committee Member attendees:\n");
-				for (int i = 0; i < attendees.size(); i++) { // Filter out to just the students excluding committee members
-					for (int j = 0; j < committeeMembers.size(); j++) {
-						if (attendees.get(i).getUserID().equals(committeeMembers.get(j).getUserID())) {
-							attendees.remove(i);
-						}
+				for (int i = 0; i < allStudents.size(); i++) {
+					if (allStudents.get(i).getCommitteeCampID() == null || !allStudents.get(i).getCommitteeCampID().equals(committeeID)) {
+						writechoicethree.write((i + 1) + ")" + allStudents.get(i).getUserName());
+						System.out.println((i + 1) + ")" + allStudents.get(i).getUserName());
+						System.out.print(" Role: Attendee\n");
+						writechoicethree.write(" Role: Attendee\n");
+						continue;
 					}
-				}
-				for (int i = 0; i < attendees.size(); i++) {
-					System.out.println((i + 1) + ")" + attendees.get(i).getUserName() + "\n Role: Attendee");
-					writechoicethree.write((i + 1) + ")" + attendees.get(i).getUserName() + "\n Role: Attendee");
+	
 				}
 				writechoicethree.close();
 			}
@@ -131,9 +141,15 @@ public class writeReport {
 						writechoiceone.write(" Role: Attendee\n");
 						continue;
 					}
-					else {
+					else if(allStudents.get(i).getCommitteeCampID().equals(reportcamp.getCampID())){
 						System.out.print(" Role: Committee Member\n");
 						writechoiceone.write(" Role: Committee Member\n");
+						System.out.println("Points: " + allStudents.get(i).getPoints());
+						writechoiceone.write("Points: " + allStudents.get(i).getPoints()+ "\n");
+					}
+					else{
+						System.out.print(" Role: Attendee\n");
+						writechoiceone.write(" Role: Attendee\n");
 					}
 				}
 				writechoiceone.close();
@@ -149,9 +165,19 @@ public class writeReport {
 				FileWriter writechoicetwo = new FileWriter("Camp Application and Management System/StaffReport(CommitteeMembers).txt");	
 				System.out.println("These are the Committee Members:");
 				writechoicetwo.write("These are the Committee Members:\n");
-				for (int i = 0; i < committeeMembers.size(); i++) {
-					System.out.println((i + 1) + ")" + committeeMembers.get(i).getUserName() + "Role: Committee Member");
-					writechoicetwo.write((i + 1) + ")" + committeeMembers.get(i).getUserName() + "Role: Committee Member");
+				for (int i = 0; i < allStudents.size(); i++) {
+					
+					if (allStudents.get(i).getCommitteeCampID() == null) {
+						continue;
+					}
+					else if (allStudents.get(i).getCommitteeCampID().equals(reportcamp.getCampID())){
+						writechoicetwo.write((i + 1) + ")" + allStudents.get(i).getUserName());
+						System.out.println((i + 1) + ")" + allStudents.get(i).getUserName());
+						System.out.print(" Role: Committee Member\n");
+						writechoicetwo.write(" Role: Committee Member\n");
+						System.out.println("Points: " + allStudents.get(i).getPoints());
+						writechoicetwo.write("Points: " + allStudents.get(i).getPoints()+ "\n");
+					}
 				}
 				writechoicetwo.close();
 			}
@@ -162,21 +188,20 @@ public class writeReport {
 		}
 		else if (choice == 3){
 			try{
-			FileWriter writechoicethree = new FileWriter("Camp Application and Management System/StaffReport(CommitteeMembers).txt");
+			FileWriter writechoicethree = new FileWriter("Camp Application and Management System/StaffReport(non-CommitteeMembers).txt");
 			System.out.println("These are the non-Committee Member attendees:");
 			writechoicethree.write("These are the non-Committee Member attendees:\n");
-				for (int i = 0; i < attendees.size(); i++) { // Filter out to just the students excluding committee members
-					for (int j = 0; j < committeeMembers.size(); j++) {
-						if (attendees.get(i).getUserID().equals(committeeMembers.get(j).getUserID())) {
-							attendees.remove(i);
-						}
-					}
+			for (int i = 0; i < allStudents.size(); i++) {
+				if (allStudents.get(i).getCommitteeCampID() == null) {
+					writechoicethree.write((i + 1) + ")" + allStudents.get(i).getUserName());
+					System.out.println((i + 1) + ")" + allStudents.get(i).getUserName());
+					System.out.print(" Role: Attendee\n");
+					writechoicethree.write(" Role: Attendee\n");
+					continue;
 				}
-				for (int i = 0; i < attendees.size(); i++) {
-					System.out.println((i + 1) + ")" + attendees.get(i).getUserName() + "\n Role: Attendee");
-					writechoicethree.write((i + 1) + ")" + attendees.get(i).getUserName() + "\n Role: Attendee");
-				}
-				writechoicethree.close();
+
+			}
+			writechoicethree.close();
 			}
 			catch (IOException e) {
 				System.out.println("An error occurred.");

@@ -36,14 +36,14 @@ public class mainApp {
 		enquiryData = new EnquiryManager();
 		
 		//read Data
-		StudentReader.readCSV(studentData, "data/studentList.csv");
-		StaffIO.readCSV(staffData, "data/staffList.csv");
-		CampIO.readCSV(campData, staffData, "data/campList.csv");
-		EnquiryIO.readCSV(enquiryData, campData, studentData, staffData, "data/EnquiryList.csv");
-		SuggestionIO.readCSV(suggestionData, campData, studentData, staffData, "data/SuggestionList.csv");
+		StudentReader.readCSV(studentData, "Camp Application and Management System/data/studentList.csv");
+		StaffIO.readCSV(staffData, "Camp Application and Management System/data/staffList.csv");
+		CampIO.readCSV(campData, staffData, "Camp Application and Management System/data/campList.csv");
+		EnquiryIO.readCSV(enquiryData, campData, studentData, staffData, "Camp Application and Management System/data/EnquiryList.csv");
+		SuggestionIO.readCSV(suggestionData, campData, studentData, staffData, "Camp Application and Management System/data/SuggestionList.csv");
 		
 		//assingment
-		campAssignment.readCSV(campData, studentData, "data/campAssign.csv");
+		campAssignment.readCSV(campData, studentData, "Camp Application and Management System/data/campAssign.csv");
 		
 //		for (Map.Entry<String, Student> pair : studentData.getStudentData().entrySet()) {
 //			Student student = pair.getValue();
@@ -112,12 +112,12 @@ public class mainApp {
 				break;
 			case 2:
 				exit = true;
-				StudentReader.writeCSV(studentData, "data/studentList.csv");
-				StaffIO.writeCSV(staffData, "data/staffList.csv");
-				CampIO.writeCSV(campData, staffData, "data/campList.csv");
-				campAssignment.writeCSV(campData, studentData, "data/campAssign.csv");
-				EnquiryIO.writeCSV(enquiryData, "data/WriteList.csv");
-				SuggestionIO.writeCSV(suggestionData, "data/SuggestionList.csv");
+				StudentReader.writeCSV(studentData, "Camp Application and Management System/data/studentList.csv");
+				StaffIO.writeCSV(staffData, "Camp Application and Management System/data/staffList.csv");
+				CampIO.writeCSV(campData, staffData, "Camp Application and Management System/data/campList.csv");
+				campAssignment.writeCSV(campData, studentData, "Camp Application and Management System/data/campAssign.csv");
+				EnquiryIO.writeCSV(enquiryData, "Camp Application and Management System/data/WriteList.csv");
+				SuggestionIO.writeCSV(suggestionData, "Camp Application and Management System/data/SuggestionList.csv");
 				
 				break;
 			default:
