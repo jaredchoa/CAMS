@@ -8,8 +8,11 @@ import java.util.*;
  */ 
 public class CommitteePerformanceReport {
 	
+
 	/**
 	 * generate report
+	 * 
+	 * @param camp camp
 	 */
 	public static void GenerateReport(Camp camp)
 	{

@@ -57,6 +57,9 @@ public class StaffManager {
     }
     
 	
+	/**
+	 * @return all staff data
+	 */
 	public Map<String, Staff> getStaffData() {
 		return staff;
 	}

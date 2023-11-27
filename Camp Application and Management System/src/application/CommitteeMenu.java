@@ -16,7 +16,13 @@ import java.util.*;
 	 * class provides the menu for the committee member
 	 */ 
 public class CommitteeMenu implements StudentMenuInterface{
+	/**
+	 * committee handler instance
+	 */
 	public static CommitteeHandlerInterface committeeHandler = new CommitteeHandler();
+	/**
+	 * committee and staff enquiry handler instance
+	 */
 	public static CommitteeStaffEnquiryHandlerInterface committeeStaffEnquiry = new CommitteeStaffEnquiryHandler();
 	
 	/** 

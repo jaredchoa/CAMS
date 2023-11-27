@@ -189,6 +189,9 @@ public class Student extends User{
 		return CommitteePoints;
 	}
 	
+	/**
+	 * @return number of points
+	 */
 	public int removePoints()
 	{
 		if (CommitteePoints > 0)

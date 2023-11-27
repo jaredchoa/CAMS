@@ -16,8 +16,17 @@ import fileIO.*;
 	 * class provides the menu for the Staff
 	 */ 
 public class StaffMenu implements StaffMenuInterface{
+	/**
+	 * camp handler instance
+	 */
 	public static StaffCampHandlerInterface staffCampHandler = new StaffCampHandler();
+	/**
+	 * enquiry handler instance
+	 */
 	public static CommitteeStaffEnquiryHandlerInterface committeeStaffEnquiry = new CommitteeStaffEnquiryHandler();
+	/**
+	 * suggestion handler instance
+	 */
 	public static StaffSuggestionHandlerInterface staffSuggestionHandler = new StaffSuggestionHandler();
 	
 	/** 
