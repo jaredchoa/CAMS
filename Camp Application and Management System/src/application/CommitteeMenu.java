@@ -17,7 +17,7 @@ public class CommitteeMenu {
 
 	
 	/** 
-	 * @param student studen object
+	 * @param student student object
 	 */ 
 	protected static void displayMenu(Student student) {
 

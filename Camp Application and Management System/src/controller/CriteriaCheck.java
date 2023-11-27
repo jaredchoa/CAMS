@@ -3,8 +3,16 @@ package controller;
 import model.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
-
-public class CriteriaCheck {		//To check whether a student is ELLIGIBLE to join a camp
+/** 
+ * class to check whether a student is ELLIGIBLE to join a camp
+ */ 
+public class CriteriaCheck {		
+/** 
+ * @param camp camp object
+ * @param UserStudent student object
+ * @return boolean whether student can register or not
+ */
+//To check whether a student is ELLIGIBLE to join a camp
 	
 	public boolean CanStudentRegister(Camp camp, Student UserStudent) {
 		int total = camp.getTotalSlots();
@@ -22,6 +30,12 @@ public class CriteriaCheck {		//To check whether a student is ELLIGIBLE to join 
 		}
 	}
 	
+	
+	/** 
+	 * @param members number of members
+	 * @param totalSlots total slots
+	 * @return boolean whether slots are available or not
+	 */
 	public boolean SlotsAvailable(int members, int totalSlots) {
 		if(members < totalSlots) {
 			return true;
@@ -32,6 +46,12 @@ public class CriteriaCheck {		//To check whether a student is ELLIGIBLE to join 
 		}
 	}
 	
+	
+	/** 
+	 * @param CurrentDate current date
+	 * @param RegistrationClosingDate registration closing date
+	 * @return boolean whether before registration date or not
+	 */
 	public boolean IsBeforeRegistrationDate(LocalDate CurrentDate, LocalDate RegistrationClosingDate) {
 		if(CurrentDate.isBefore(RegistrationClosingDate))
 		{
@@ -43,6 +63,13 @@ public class CriteriaCheck {		//To check whether a student is ELLIGIBLE to join 
 		}
 	}
 	
+	
+	/** 
+	 * @param CampStartDate camp start date
+	 * @param CampEndDate camp end date
+	 * @param UserStudent student object
+	 * @return boolean whether clash with other camp or not
+	 */
 	public boolean NoClashWithOtherCamp(LocalDate CampStartDate, LocalDate CampEndDate, Student UserStudent) {
 		//to check clash
 		ArrayList<Camp> RegisteredCamps = UserStudent.getRegisteredCamps();
@@ -65,6 +92,12 @@ public class CriteriaCheck {		//To check whether a student is ELLIGIBLE to join 
 		return true;		//no clash with any courses that have already been registered
 	}
 	
+	
+	/** 
+	 * @param WithdrawnCamps withdrawn camps
+	 * @param camp camp object
+	 * @return boolean whether student has withdrawn or not
+	 */
 	public boolean HasNotWithdrawn(ArrayList<Camp> WithdrawnCamps, Camp camp)
 	{
 		if(WithdrawnCamps.contains(camp)==false)

@@ -3,11 +3,13 @@ package controller;
 import model.*;
 import java.util.*;
 
-
+/** 
+ * class to generate committee performance report
+ */ 
 public class CommitteePerformanceReport {
 
 	private Camp camp;
-	
+
 	public CommitteePerformanceReport(Camp camp) {
 		this.camp = camp;
 	}

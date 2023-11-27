@@ -6,9 +6,18 @@ import application.mainApp;
 import model.Camp;
 import model.Enquiry;
 import model.Student;
-
+/** 
+ * class to manage all the Student Enquiries
+ */ 
 public class StudentEnquiryHandler {
 
+	
+	/** 
+	 * @param scanner scanner object
+	 * @param student student object
+	 * @param CampData camp manager object
+	 * @param EnquiryData enquiry manager object
+	 */
 	public static void SubmitEnquiry(Scanner scanner, Student student, CampManager CampData, EnquiryManager EnquiryData) {
 		System.out.print("Input ID of camp you wish to submit enquiry of: ");
 
@@ -42,6 +51,13 @@ public class StudentEnquiryHandler {
 
 	}
 	
+	
+	/** 
+	 * @param scanner scanner object
+	 * @param student student object
+	 * @param CampData camp manager object
+	 * @param EnquiryData enquiry manager object
+	 */
 	public static void EditEnquiry(Scanner scanner, Student student, CampManager CampData, EnquiryManager EnquiryData) {
 		System.out.print("Input ID of camp you wish to edit enquiry of: ");
 

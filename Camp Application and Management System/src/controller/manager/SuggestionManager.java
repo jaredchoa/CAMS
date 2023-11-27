@@ -2,7 +2,9 @@ package controller.manager;
 
 import java.util.*;
 import model.*;
-
+/** 
+ * class to manage all the suggestions
+ */ 
 public class SuggestionManager {
 	
 	public static Map<String, Suggestion> suggestions;
@@ -10,9 +12,20 @@ public class SuggestionManager {
 	public SuggestionManager(){
 		suggestions = new HashMap<>();
 	}
+	
+	/** 
+	 * @param suggestion suggestion 
+	 */
 	public void addSuggestion(Suggestion suggestion) {
 		suggestions.put(suggestion.getSuggestionID(), suggestion);	}
 	
+	
+	/** 
+	 * @param Suggestion Suggestion string
+	 * @param createdBy	user object
+	 * @param camp camp ID
+	 * @return Suggestions object
+	 */
 	public Suggestion addSuggestion(String Suggestion, User createdBy, String camp) {
 		Suggestion newSuggestion = new Suggestion(Suggestion, createdBy, camp);
 		suggestions.put(newSuggestion.getSuggestionID(), newSuggestion);
@@ -20,18 +33,32 @@ public class SuggestionManager {
 		return newSuggestion;
 	}
 	
+	
+	/** 
+	 * @param SuggestionID Suggestion ID
+	 * @return Suggestion object
+	 */
 	public Suggestion getSuggestionByID(String SuggestionID){
 		return suggestions.get(SuggestionID);
 	}
 	
+	
+	/** 
+	 * @return Map<String, Suggestion> list of all the suggestion data
+	 */
 	public Map<String, Suggestion> getSuggData() {
 		return suggestions;
 	}
 	
 	
+
+
 //	public int ViewByStudent(Student student, String campID) {
 //		return;
 //	}
+/** 
+ * @return int number of suggestions
+ */
 	public int ViewByStaff(Camp staffCamp) {
 		int count = 0;
 		for (Suggestion suggestion: staffCamp.getSuggestionList()) {
@@ -41,6 +68,12 @@ public class SuggestionManager {
 		return count;
 	}
 
+	
+	/** 
+	 * @param removeSuggestion suggestion string
+	 * @param createdby user object
+	 * @param campcommID camp ID
+	 */
 	public void deleteSuggestion(String removeSuggestion, User createdby, String campcommID) {
 		Suggestion removesuggestion = new Suggestion(removeSuggestion, createdby, campcommID);
 		suggestions.remove(removesuggestion.getSuggestionID(), removeSuggestion);
