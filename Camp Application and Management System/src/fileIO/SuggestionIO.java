@@ -13,11 +13,27 @@ import controller.manager.*;
 import model.Camp;
 import model.Suggestion;
 
+/**
+ * Class provide methods to read/write suggestion data from CSV
+ */
 public class SuggestionIO {
 	
+	
+	/**
+	 * Delimiter used in CSV file
+	 */
 	public static final String DELIMITER = ",";
 
 	
+	/**
+	 * @param suggData all suggestion data
+	 * @param campData all camp data
+	 * @param studentData all student data
+	 * @param staffData all staff data
+	 * @param path file path for suggestion data
+	 */
+	
+
 	public static void readCSV(SuggestionManager suggData, CampManager campData, StudentManager studentData, StaffManager staffData, String path) {
 		try {
 			//DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");  
@@ -48,6 +64,10 @@ public class SuggestionIO {
 		}catch(IOException ioe) {ioe.printStackTrace();}
 	}
 	
+	/**
+	 * @param suggData all suggestion data
+	 * @param path file path for suggestion data
+	 */
 	public static void writeCSV(SuggestionManager suggData, String path) {
 		try {
 			File csvFile = new File(path);

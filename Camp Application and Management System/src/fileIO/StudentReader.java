@@ -9,10 +9,20 @@ import controller.manager.CampManager;
 import controller.manager.StaffManager;
 import controller.manager.StudentManager;
 
+/**
+ * Class provide methods to read/write student data from csv
+ */
 public class StudentReader {
 	
+	/**
+	 * Delimiter used in CSV file
+	 */
 	public static final String DELIMITER = ",";
 
+	/**
+	 * @param studentData all student data
+	 * @param path file path to read student csv data
+	 */
 	public static void readCSV(StudentManager studentData, String path) {
 		try {
 			File csvFile = new File(path);
@@ -43,6 +53,10 @@ public class StudentReader {
 		}catch(IOException ioe) {ioe.printStackTrace();}
 	}
 	
+	/**
+	 * @param studentData all student data
+	 * @param path file path to write student data to csv 
+	 */
 	public static void writeCSV(StudentManager studentData, String path) {
 		try {
 			File csvFile = new File(path);

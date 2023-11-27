@@ -6,7 +6,17 @@ import common.model.*;
 import java.io.FileWriter;   // Import the FileWriter class
 import java.io.IOException;  // Import the IOException class to handle errors
 
+/**
+ * Class provides methods to generate reports
+ */
 public class writeReport {
+	
+	/**
+	 * @param camp camp object
+	 * @param student student object
+	 * @param scanner scanner object
+	 * @param choice user's choice
+	 */
 	public static void generateCommitteeReport(Camp camp, Student student, Scanner scanner, int choice){
 
 		ArrayList<Student> attendees = new ArrayList<Student>();
@@ -92,6 +102,11 @@ public class writeReport {
 	
 
 
+	/**
+	 * @param staff staff object
+	 * @param scanner scanner object
+	 * @param choice user's choice
+	 */
 	public static void generateStaffReport(Staff staff, Scanner scanner, int choice){
 
 		ArrayList<Student> attendees = new ArrayList<Student>();

@@ -21,9 +21,20 @@ import common.model.Faculty;
 import controller.manager.*;
 import model.*;
 
+/**
+ * class provide methods to read/write camp data from csv
+ */
 public class CampIO {
-	
+	/**
+	 * Delimiter used in CSV file
+	 */
 	public static final String DELIMITER = ",";
+	
+	/**
+	 * @param campData all camp data
+	 * @param staffData all staff data
+	 * @param path file path to read camp data from csv
+	 */
 
 	public static void readCSV(CampManager campData, StaffManager staffData, String path) {
 		try {
@@ -62,6 +73,11 @@ public class CampIO {
 		}catch(IOException ioe) {ioe.printStackTrace();}
 	}
 	
+	/**
+	 * @param campData all camp data
+	 * @param staffData all staff data
+	 * @param path file path to write camp data to csv
+	 */
 	public static void writeCSV(CampManager campData, StaffManager staffData, String path) {
 		try {
 			File csvFile = new File(path);

@@ -11,12 +11,22 @@ import controller.manager.CampManager;
 import controller.manager.StudentManager;
 import model.*;
 
+/**
+ * class provide methods to read/write camp assignment from csv
+ */
 public class campAssignment {
-	
+	/**
+	 * Delimiter used in CSV file
+	 */
 
 	public static final String DELIMITER = ",";
 
 
+	/**
+	 * @param campData all camp data
+	 * @param studentData all student data
+	 * @param path file path for student and camp assignment
+	 */
 	public static void readCSV(CampManager campData, StudentManager studentData, String path) {
 	try {
 		//DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");  
@@ -44,6 +54,13 @@ public class campAssignment {
 		
 	}
 	
+	
+	
+	/**
+	 * @param campData all camp data
+	 * @param studentData all student data
+	 * @param path file path for student and camp assignment
+	 */
 	public static void writeCSV(CampManager campData, StudentManager studentData, String path) {
 		try {
 			File csvFile = new File(path);

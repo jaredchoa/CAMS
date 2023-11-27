@@ -11,9 +11,19 @@ import common.model.Faculty;
 import controller.manager.StaffManager;
 import model.*;
 
+/**
+ * class provide methods to read/write staff data from csv
+ */
 public class StaffIO {
+	/**
+	 * Delimiter used in CSV file
+	 */
 	public static final String DELIMITER = ",";
 
+	/**
+	 * @param staffData all staff data
+	 * @param path file path to read staff data from csv
+	 */
 	public static void readCSV(StaffManager staffData, String path) {
 		try {
 			File csvFile = new File(path);
@@ -38,6 +48,11 @@ public class StaffIO {
 			
 		}catch(IOException ioe) {ioe.printStackTrace();}
 	}
+	
+	/**
+	 * @param staffData all staff data
+	 * @param path file path to write staff data to csv
+	 */
 	public static void writeCSV(StaffManager StaffData, String path) {
 		try {
 			File csvFile = new File(path);

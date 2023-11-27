@@ -9,11 +9,24 @@ import controller.manager.*;
 
 import model.*;
 
+/**
+ * class provide methods to read/write enquiry data from csv
+ */
 public class EnquiryIO {
+	/**
+	 * Delimiter used in CSV file
+	 */
 	
-public static final String DELIMITER = ",";
+	public static final String DELIMITER = ",";
 
 	
+	/**
+	 * @param enquiryData all enquiry data
+	 * @param campData all camp data
+	 * @param studentData all student data
+	 * @param staffData all staff data
+	 * @param path file path to read enquiry data from csv
+	 */
 	public static void readCSV(EnquiryManager enquiryData, CampManager campData, StudentManager studentData, StaffManager staffData, String path) {
 		try {
 			//DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");  
@@ -45,6 +58,10 @@ public static final String DELIMITER = ",";
 		}catch(IOException ioe) {ioe.printStackTrace();}
 	}
 	
+	/**
+	 * @param enquiryData all enquiry data
+	 * @param path file path to write enquiry data to csv
+	 */
 	public static void writeCSV(EnquiryManager enquiryData, String path) {
 		try {
 			File csvFile = new File(path);
