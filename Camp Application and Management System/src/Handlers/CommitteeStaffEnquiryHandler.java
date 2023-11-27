@@ -5,6 +5,8 @@ import java.util.Scanner;
 import HandlersInterfaces.CommitteeStaffEnquiryHandlerInterface;
 import controller.manager.EnquiryManager;
 import model.Enquiry;
+import model.Student;
+import model.User;
 
 /**
  * enquiry handler
@@ -16,7 +18,7 @@ public class CommitteeStaffEnquiryHandler implements CommitteeStaffEnquiryHandle
 	 * @param scanner scanner object
 	 * @param EnquiryData  EnquiryManager object
 	 */
-	public void ReplyEnquiry(Scanner scanner, EnquiryManager EnquiryData) {
+	public void ReplyEnquiry(Scanner scanner, EnquiryManager EnquiryData, User user) {
 		System.out.print("Input the ID of enquiry you wish to reply: ");
 
 		String enquiryIDSubmit = scanner.nextLine();
@@ -38,6 +40,10 @@ public class CommitteeStaffEnquiryHandler implements CommitteeStaffEnquiryHandle
 
 			System.out.println("The enquiry with an ID of " + enquiry.getEnquiryID()
 					+ "has been successfully replied to.");
+			if(user instanceof Student) {
+				Student commMemb = (Student) user;
+				commMemb.addPoints();
+			}
 		}
 	}
 

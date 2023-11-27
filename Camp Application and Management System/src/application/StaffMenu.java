@@ -38,7 +38,8 @@ public class StaffMenu implements StaffMenuInterface{
 			System.out.println("3. View Suggestions");  //View all suggestions -> can accept or reject suggestions
 			System.out.println("4. Change password");
 			System.out.println("5. Generate staff report");
-			System.out.println("6. Logout");
+			System.out.println("6. Generate Performance Report");
+			System.out.println("7. Logout");
 			System.out.println("+------------------------------------------------------------+");
 			System.out.print("Please choose an option: ");
 			
@@ -74,8 +75,10 @@ public class StaffMenu implements StaffMenuInterface{
 			case 5:	//generate staff report
 				generateReport(staff, scanner);
 				break;
-
 			case 6:
+				controller.CommitteePerformanceReport.GenerateReport(staff.getCreatedCamp());
+				break;
+			case 7:
 				logout = true;
 				break;
 			default:
@@ -241,16 +244,7 @@ public class StaffMenu implements StaffMenuInterface{
 			
 			subchoice = scanner.nextInt();
 			if (subchoice == 1) {
-				System.out.print("\nInput ID of enquiry you wish to reply to: ");
-				String enquiryID = in.nextLine();
-				
-				Enquiry replyEnquiry = mainApp.enquiryData.getEnquiryByID(enquiryID);
-				replyEnquiry.printEnquiry();
-				
-				System.out.print("Reply: ");
-				String reply = in.nextLine();
-				
-				replyEnquiry.setReply(reply);
+				committeeStaffEnquiry.ReplyEnquiry(scanner, mainApp.enquiryData, staff);
 			}
 			else if (subchoice == 2) {
 				break;

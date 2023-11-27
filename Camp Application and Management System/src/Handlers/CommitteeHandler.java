@@ -103,6 +103,7 @@ public class CommitteeHandler implements CommitteeHandlerInterface{
 			student.removeCommitteeSuggestions(suggestion3);
 
 			System.out.println("Your suggestion has been successfully deleted.");
+			student.removePoints();
 
 		}
 	
@@ -132,6 +133,7 @@ public class CommitteeHandler implements CommitteeHandlerInterface{
 
 		System.out.println("\nYour suggestion (ID: " + suggestion1.getSuggestionID()
 				+ ") has been successfully submitted.\n");
+		student.addPoints();
 	}
 
 	

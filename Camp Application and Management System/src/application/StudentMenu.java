@@ -269,12 +269,16 @@ public class StudentMenu implements StudentMenuInterface{
 				for (Camp camp : student.getRegisteredCamps()) {
 
 					if (camp.getCampID().equals(registercommittee)) {
-
+						
 						campcomm.setCommitteeList(student);
 
 						student.setCommitteeCampID(campcomm.getCampID());
 
 						System.out.print("You are now a committee member for that camp! ");
+						
+						if(student.getPoints()==-1) {		//-1 for student, incremented to 0 for comm member
+							student.addPoints();
+						}
 
 						return;
 

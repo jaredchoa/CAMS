@@ -159,6 +159,7 @@ public class CommitteeMenu implements StudentMenuInterface{
 
 			case 1:
 				committeeHandler.SubmitSuggestion(scanner, student, mainApp.suggestionData, mainApp.campData);
+				//Add a point
 				printSuggestions(suggestionList);
 
 				break;
@@ -268,7 +269,7 @@ public class CommitteeMenu implements StudentMenuInterface{
 				switch (subchoice) {
 
 				case 1:
-					committeeStaffEnquiry.ReplyEnquiry(scanner, mainApp.enquiryData);
+					committeeStaffEnquiry.ReplyEnquiry(scanner, mainApp.enquiryData, student);
 					break;
 
 				case 2:

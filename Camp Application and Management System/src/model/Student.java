@@ -11,7 +11,7 @@ public class Student extends User{
 	
 	//for campcommittee
 	private String CommitteeCampID = null; // Stores the ID of the camp the student is a camp committe member of
-	private int CommitteePoints = -1;	
+	private int CommitteePoints = -1;	//-1 for students; 1 added to make it 0 for committee
 	private ArrayList<Suggestion> CommitteeSuggestions = null; 	
 	//Can only be committee in 1 Camp	
 
@@ -183,6 +183,13 @@ public class Student extends User{
 	{
 		if (CommitteePoints != -1)
 		CommitteePoints++;
+		return CommitteePoints;
+	}
+	
+	public int removePoints()
+	{
+		if (CommitteePoints > 0)
+		CommitteePoints--;
 		return CommitteePoints;
 	}
 
