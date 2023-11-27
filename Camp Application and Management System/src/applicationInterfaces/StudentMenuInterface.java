@@ -2,6 +2,6 @@ package applicationInterfaces;
 
 import model.Student;
 
-public interface CommitteeMenuInterface {
+public interface StudentMenuInterface {
 	public void displayMenu(Student student);
 }

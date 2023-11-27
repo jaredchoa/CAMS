@@ -2,6 +2,7 @@ package application;
 
 import java.util.Scanner;
 
+import applicationInterfaces.StudentMenuInterface;
 import common.util.ReadChecker;
 import controller.manager.StudentEnquiryHandler;
 import model.*;
@@ -9,13 +10,13 @@ import model.*;
 /** 
 	 * class provides the menu for the student
 	 */ 
-public class StudentMenu {
+public class StudentMenu implements StudentMenuInterface{
 
 	
 	/** 
 	 * @param student student object
 	 */
-	protected static void displayMenu(Student student) {
+	public void displayMenu(Student student) {
 
 		boolean logout = false;
 

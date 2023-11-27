@@ -5,7 +5,7 @@ import java.util.Scanner;
 import Handlers.CommitteeHandler;
 import Handlers.CommitteeStaffEnquiryHandler;
 import HandlersInterfaces.*;
-import applicationInterfaces.CommitteeMenuInterface;
+import applicationInterfaces.*;
 import common.util.ReadChecker;
 import fileIO.writeReport;
 import model.*;
@@ -15,7 +15,7 @@ import java.util.*;
 	/** 
 	 * class provides the menu for the committee member
 	 */ 
-public class CommitteeMenu implements CommitteeMenuInterface{
+public class CommitteeMenu implements StudentMenuInterface{
 	public static CommitteeHandlerInterface committeeHandler = new CommitteeHandler();
 	public static CommitteeStaffEnquiryHandlerInterface committeeStaffEnquiry = new CommitteeStaffEnquiryHandler();
 	
