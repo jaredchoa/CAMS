@@ -4,7 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 import common.model.*;
 import model.*;
-
+/** 
+ * class to manage all the Staff
+ */ 
 public class StaffManager {
 	
     private Map<String, Staff> staff;
@@ -13,11 +15,21 @@ public class StaffManager {
         staff = new HashMap<>();
     }
 
-    public Staff getStaff(String userID) {
+    
+	/** 
+	 * @param userID userID
+	 * @return Staff object
+	 */
+	public Staff getStaff(String userID) {
         return staff.get(userID);
     }
 
-    public String getStaffID(String name) {
+    
+	/** 
+	 * @param name name of staff
+	 * @return String staff ID
+	 */
+	public String getStaffID(String name) {
     	String output = "Staff not found!";
     	for(Map.Entry<String, Staff> set:staff.entrySet()) {
     		Staff staff = set.getValue();
@@ -29,11 +41,22 @@ public class StaffManager {
     	return output;
     }
 
-    public void addStaff(String userID, String userName, Faculty facultyName, String password) {
+    
+	/** 
+	 * @param userID userID
+	 * @param userName userName
+	 * @param facultyName faculty object
+	 * @param password password
+	 */
+	public void addStaff(String userID, String userName, Faculty facultyName, String password) {
     	Staff newstaff = new Staff(userID, userName, facultyName, password);
         staff.put(newstaff.getUserID(), newstaff);
     }
     
+	
+	/** 
+	 * @return Map<String, Staff> list of all the staff data
+	 */
 	public Map<String, Staff> getStaffData() {
 		return staff;
 	}

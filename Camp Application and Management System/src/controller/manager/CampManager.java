@@ -4,6 +4,9 @@ import java.util.Map;
 import java.util.HashMap;
 import model.*;
 
+/** 
+ * class to manage all the camps
+ */ 
 import common.model.*;
 
 public class CampManager {
@@ -16,14 +19,27 @@ public class CampManager {
 		this.campData = new HashMap<>(); 
 	}
 	
+	
+	/** 
+	 * @return Map<String, Camp> list of camp data
+	 */
 	public Map<String, Camp> getcampData() {
 		return campData;
 	}
 	
+	
+	/** 
+	 * @param CampID camp ID
+	 * @return Camp object
+	 */
 	public Camp getCamp(String CampID) {
 		return campData.get(CampID);
 	}
 	
+	
+	/** 
+	 * @param camp camp object
+	 */
 	// do we want to add an already created camp object here
 	// or create a new camp object right inside this function?
 	public void addNewCamp(Camp camp) {
@@ -31,10 +47,19 @@ public class CampManager {
 		// we need to add the part where we assign camp to the staff too
 	}
 	
+	
+	/** 
+	 * @param campID camp ID
+	 */
 	public void removeCamp(String campID) {
 		campData.remove(campID);
 	}
 	
+	
+	/** 
+	 * @param user user object
+	 * @param viewStudent boolean to check if user is student
+	 */
 	public void printCampData(User user, boolean viewStudent) {
 		// can get more options for user to choose how much details they would like
 		
@@ -80,6 +105,10 @@ public class CampManager {
 //		}
 	}
 	
+
+
+
+
 //	// camp updates
 //	public static void printCampData(Map<String, Camp> campData) {			//?
 //		
@@ -97,7 +126,10 @@ public class CampManager {
 //					);
 //		}
 //	}
-	
+/** 
+ *  @param faculty faculty object
+ * @return Map<String, Camp> list of camp data
+ */
 	public Map<String, Camp> facultyFilter (Faculty faculty) {
 		
 		Map<String, Camp> campFiltered = new HashMap<>();
