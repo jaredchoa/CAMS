@@ -4,6 +4,9 @@ import java.util.*;
 import common.model.*;
 import controller.CriteriaCheck;
 
+/** 
+ * class stores information for Student and committee member
+ */
 public class Student extends User{
 	
 	//for campcommittee
@@ -19,6 +22,13 @@ public class Student extends User{
 	private ArrayList<Enquiry> StudentEnquiries;
 	private StudentOrStaff UserType = StudentOrStaff.Student;
 
+	/**
+	 * @param UserID student's ID
+	 * @param UserName student's name
+	 * @param UserFaculty student's faculty
+	 * @param password student's password
+	 * @param committeeCampID student's committee camp ID
+	 */
 	public Student(String UserID, String UserName, Faculty UserFaculty, String password, String committeeCampID) {
 		super(UserID, UserName, UserFaculty, password);
 		this.StudentEnquiries = new ArrayList<Enquiry>();
@@ -28,14 +38,27 @@ public class Student extends User{
 		this.CommitteeCampID = committeeCampID;
 	}
 	
+	
+	
+	/** 
+	 * @return ArrayList<Camp> List of camps student has withdrawn from
+	 */
 	public ArrayList<Camp> getWithdrawnCamps() {
 		return WithdrawnCamps;
 	}
 
+	
+	/** 
+	 * @param camp camp object
+	 */
 	public void addWithdrawnCamps(Camp camp) {
 		WithdrawnCamps.add(camp);
 	}
 
+	
+	/** 
+	 * @return ROLE role of student in each camp
+	 */
 	public ROLE getRole() {
 		if  (CommitteeCampID == null){
 			role = ROLE.Committee;
@@ -46,10 +69,19 @@ public class Student extends User{
 		return role;
 	}
 
+	
+	/** 
+	 * @return ArrayList<Camp> List of camps student has registered for
+	 */
 	public ArrayList<Camp> getRegisteredCamps() {
 		return RegisteredCamps;
 	}
 
+	
+	/** 
+	 * @param camp camp object
+	 * @return boolean true if student can register for camp, false otherwise
+	 */
 	public boolean addRegisteredCamps(Camp camp) {
 		CriteriaCheck x = new CriteriaCheck();
 		boolean canRegister = x.CanStudentRegister(camp, this);
@@ -64,10 +96,18 @@ public class Student extends User{
 		}
 	}
 	
+	
+	/** 
+	 * @param camp camp object
+	 */
 	public void removeRegisteredCamp(Camp camp) {
 		this.RegisteredCamps.remove(camp);
 	}
 
+	
+	/** 
+	 * @param CampID camp ID
+	 */
 	public void setCommitteeCampID(String CampID) {
 		CommitteePoints = 0;
 		if(CommitteeCampID == "null"){
@@ -76,6 +116,10 @@ public class Student extends User{
 		this.CommitteeCampID = CampID;
 	}
 
+	
+	/** 
+	 * @return String camp ID
+	 */
 	public String getCommitteeCampID() {
 		return CommitteeCampID;
 	}
@@ -84,32 +128,60 @@ public class Student extends User{
 		this.CommitteeCampID = null;
 	}
 
+	
+	/** 
+	 * @return StudentOrStaff student or staff
+	 */
 	public StudentOrStaff getUserType() {
 		return UserType;
 	}
 
+	
+	/** 
+	 * @return ArrayList<Enquiry> student enquiries
+	 */
 	public ArrayList<Enquiry> getStudentEnquiries() {
 		return StudentEnquiries;
 	}
 
+	
+	/** 
+	 * @param enquiry enquiry object
+	 */
 	public void addStudentEnquiries(Enquiry enquiry) {
 		ArrayList<Enquiry> enquiryList = this.getStudentEnquiries();
 		enquiryList.add(enquiry);
 		this.setStudentEnquiries(enquiryList);
 	}
 	
+	
+	/** 
+	 * @param studentEnquiries student enquiries
+	 */
 	public void setStudentEnquiries(ArrayList<Enquiry> studentEnquiries) {
 		StudentEnquiries = studentEnquiries;
 	}
 
+	
+	/** 
+	 * @param enquiry enquiry object
+	 */
 	public void removeStudentEnquries(Enquiry enquiry) {
 		this.StudentEnquiries.remove(enquiry);
 	}
 
+	
+	/** 
+	 * @return int committee points
+	 */
 	public int getPoints() {
 		return CommitteePoints;
 	}
 
+	
+	/** 
+	 * @return int committee points
+	 */
 	public int addPoints()
 	{
 		if (CommitteePoints != -1)
@@ -117,18 +189,34 @@ public class Student extends User{
 		return CommitteePoints;
 	}
 
+	
+	/** 
+	 * @return ArrayList<Suggestion> committee suggestions
+	 */
 	public ArrayList<Suggestion> getCommitteeSuggestions() {
 		return CommitteeSuggestions;
 	}
 
+	
+	/** 
+	 * @param suggestion suggestion object
+	 */
 	public void addCommitteeSuggestions(Suggestion suggestion) {
 		CommitteeSuggestions.add(suggestion);
     }
 	
+	
+	/** 
+	 * @param suggestion suggestion object
+	 */
 	public void removeCommitteeSuggestions(Suggestion suggestion) {
 		CommitteeSuggestions.remove(suggestion);
 	}
 	
+	
+	/** 
+	 * @param camp camp object
+	 */
 	public void withdraw(Camp camp) {
 		this.removeRegisteredCamp(camp);
 		this.addWithdrawnCamps(camp);

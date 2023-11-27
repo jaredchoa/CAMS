@@ -5,12 +5,21 @@ import java.util.regex.*;
 import common.model.Faculty;
 import common.util.ReadChecker;
 
+/** 
+ * class stores information for user
+ */
 public abstract class User {
 	private String UserID;
 	private String password;
 	private Faculty UserFaculty;
 	private String UserName;
 	
+	/** 
+	 * @param UserID user's ID
+	 * @param UserName user's name
+	 * @param UserFaculty user's faculty
+	 * @param password user's password
+	 */
 	public User(String UserID,String UserName, Faculty UserFaculty, String password) {
 		// TODO Auto-generated constructor stub
 		this.UserName = UserName;
@@ -20,26 +29,52 @@ public abstract class User {
 
 	}
 
+
+	
+	/** 
+	 * @return String UserID
+	 */
 	public String getUserID() {		//no setter as USERID CANT BE CHANGED
 		return UserID;
 	}
 
+	
+	/** 
+	 * @return String password
+	 */
 	public String getPassword() {
 		return password;
 	}
 
+	
+	/** 
+	 * @param password password
+	 */
 	public void setPassword(String password) {		//to change Password
 		this.password = password;
 	}
 
+	
+	/** 
+	 * @return Faculty UserFaculty
+	 */
 	public Faculty getUserFaculty() {
 		return UserFaculty;
 	}
 
+	
+	/** 
+	 * @return String UserName
+	 */
 	public String getUserName() {
 		return UserName;
 	}
 	
+	
+	/** 
+	 * @param newPass new password
+	 * @return boolean true if password is acceptable
+	 */
 	private boolean checkPassword(String newPass) {
 		boolean acceptable = true;
 		if (newPass.length()<10) {
@@ -80,7 +115,12 @@ public abstract class User {
 				
 	}
 	
-    public boolean authenticate(String password) {
+    
+	/** 
+	 * @param password password
+	 * @return boolean authentication
+	 */
+	public boolean authenticate(String password) {
     	if(this.getPassword().equals(password)) {
     		if (this.getPassword().equals("password")) {
     			changePassword();
