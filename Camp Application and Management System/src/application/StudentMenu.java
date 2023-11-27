@@ -149,10 +149,14 @@ public class StudentMenu {
 
 				Camp registerCamp = mainApp.campData.getCamp(registerID);
 
-				if (student.getWithdrawnCamps().contains(registerCamp)) {
+				if (student.getWithdrawnCamps().contains(registerCamp) ) {
 
 					System.out.println("You have withdrawn from this camp and can no longer register for it.");
 
+				}
+				
+				if (student.getRegisteredCamps().contains(registerCamp)) {
+					System.out.println("You have already registered for this camp!");
 				}
 
 				else {

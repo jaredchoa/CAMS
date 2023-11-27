@@ -9,7 +9,9 @@ import controller.*;
 import controller.manager.*;
 import fileIO.*;
 import common.util.*;
-
+/**
+ * Private constructor for the mainApp class. Initializes data managers and reads data from CSV files.
+ */
 
 public class mainApp {
 	//singleton session?
@@ -50,13 +52,21 @@ public class mainApp {
 //		}
 		//create new for managers with no need to load data (enquiry)
 	}
-
-
-	//Main function to be ran
+    /**
+     * Main function to be run when starting the application.
+     *
+     * @param args Command-line arguments (not used in this application).
+     */
 	public static void main(String[] args) {
 		mainApp app = mainApp.getInstance();
 		app.run();
 	}
+	
+    /**
+     * Gets the instance of the mainApp class, following the singleton pattern.
+     *
+     * @return The mainApp instance.
+     */
 
 	public static mainApp getInstance() {
 		if (session == null)
@@ -177,7 +187,5 @@ public class mainApp {
 			System.out.println("Invalid userID.");
 		}
 	}
-
-
 
 }

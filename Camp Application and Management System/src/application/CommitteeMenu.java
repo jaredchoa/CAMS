@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 import Handlers.CommitteeHandler;
 import Handlers.CommitteeStaffEnquiryHandler;
-import HandlersInterfaces.CommitteeHandlerInterface;
 import common.util.ReadChecker;
 import fileIO.writeReport;
 import model.*;
