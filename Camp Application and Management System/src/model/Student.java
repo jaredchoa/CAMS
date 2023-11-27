@@ -181,7 +181,10 @@ public class Student extends User{
 	 */
 	public int addPoints()
 	{
-		if (CommitteePoints != -1)
+		if (CommitteePoints == -1) {
+			CommitteePoints = 0;
+		}
+		
 		CommitteePoints++;
 		return CommitteePoints;
 	}
