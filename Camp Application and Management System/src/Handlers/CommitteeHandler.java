@@ -10,8 +10,17 @@ import model.Camp;
 import model.Student;
 import model.Suggestion;
 
+/** 
+ * class to handle committee members
+ */ 
 public class CommitteeHandler  {
 
+	/** 
+	 * @param scanner scanner object
+	 * @param student student object
+	 * @param SuggestionData SuggestionManager object
+	 * @param CampData CampManager object
+	 */
 	public static void EditSuggestion(Scanner scanner, Student student, SuggestionManager SuggestionData) {
 		// TODO Auto-generated method stub
 		System.out.print("Input the ID of suggestion you wish to edit: ");
@@ -49,6 +58,12 @@ public class CommitteeHandler  {
 		}
 	}
 
+	/** 
+	 * @param scanner scanner object
+	 * @param student student object
+	 * @param SuggestionData SuggestionManager object
+	 * @param CampData CampManager object
+	 */
 	public static void DeleteSuggestion(Scanner scanner, Student student, SuggestionManager SuggestionData,
 			CampManager CampData) {
 		// TODO Auto-generated method stub
@@ -93,6 +108,12 @@ public class CommitteeHandler  {
 	
 	}
 
+	/** 
+	 * @param scanner scanner object
+	 * @param student student object
+	 * @param SuggestionData SuggestionManager object
+	 * @param CampData CampManager object
+	 */
 	public static void SubmitSuggestion(Scanner scanner, Student student, SuggestionManager SuggestionData,
 			CampManager CampData) {
 		// TODO Auto-generated method stub

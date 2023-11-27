@@ -8,6 +8,11 @@ import model.Enquiry;
 
 public class CommitteeStaffEnquiryHandler {
 
+	
+	/** 
+	 * @param scanner scanner object
+	 * @param EnquiryData  EnquiryManager object
+	 */
 	public static void ReplyEnquiry(Scanner scanner, EnquiryManager EnquiryData) {
 		System.out.print("Input the ID of enquiry you wish to reply: ");
 
