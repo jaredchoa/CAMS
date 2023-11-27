@@ -57,7 +57,7 @@ public class StaffIO {
 		try {
 			File csvFile = new File(path);
 			FileWriter fw  = new FileWriter(csvFile);
-			fw.write("Name,Email,Faculty,Password,CommitteeCampID\n");
+			fw.write("Name,Email,Faculty,Password\n");
 			
 			for (Map.Entry<String, Staff> pair : StaffData.getStaffData().entrySet()) {
 				StringBuilder line = new StringBuilder();

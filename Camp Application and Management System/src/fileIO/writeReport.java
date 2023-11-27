@@ -30,7 +30,7 @@ public class writeReport {
 		switch (choice) {
 		case 1:
 			try{
-				FileWriter writechoiceone = new FileWriter("Camp Application and Management System/CommitteeReport(allstudents).txt");	
+				FileWriter writechoiceone = new FileWriter("report/CommitteeReport(allstudents).txt");	
 				System.out.println("These are the all the attendees:");
 				writechoiceone.write("These are the all the attendees:\n");
 				for (int i = 0; i < allStudents.size(); i++) {
@@ -60,7 +60,7 @@ public class writeReport {
 			break;
 		case 2:
 		try{
-			FileWriter writechoicetwo = new FileWriter("Camp Application and Management System/CommitteeReport(committeemembers).txt");
+			FileWriter writechoicetwo = new FileWriter("report/CommitteeReport(committeemembers).txt");
 				System.out.println("These are the Committee Members:");
 				writechoicetwo.write("These are the Committee Members:\n");
 				for (int i = 0; i < allStudents.size(); i++) {
@@ -83,7 +83,7 @@ public class writeReport {
 			break;
 		case 3:
 		try{
-			FileWriter writechoicethree = new FileWriter("Camp Application and Management System/CommitteeReport(noncommitteemembers).txt");
+			FileWriter writechoicethree = new FileWriter("report/CommitteeReport(noncommitteemembers).txt");
 
 				System.out.println("These are the non-Committee Member attendees:");
 				writechoicethree.write("These are the non-Committee Member attendees:\n");
@@ -130,7 +130,7 @@ public class writeReport {
 		committeeMembers = reportcamp.getCommitteeList();
 		if(choice==1){//all students	
 			try{
-				FileWriter writechoiceone = new FileWriter("Camp Application and Management System/StaffReport_allstudents.txt");	
+				FileWriter writechoiceone = new FileWriter("report/StaffReport_allstudents.txt");	
 				System.out.println("These are all the attendees:");	
 				writechoiceone.write("These are all the attendees:\n");
 				for (int i = 0; i < allStudents.size(); i++) {
@@ -162,7 +162,7 @@ public class writeReport {
 		}
 		else if(choice == 2){
 			try{
-				FileWriter writechoicetwo = new FileWriter("Camp Application and Management System/StaffReport(CommitteeMembers).txt");	
+				FileWriter writechoicetwo = new FileWriter("report/StaffReport(CommitteeMembers).txt");	
 				System.out.println("These are the Committee Members:");
 				writechoicetwo.write("These are the Committee Members:\n");
 				for (int i = 0; i < allStudents.size(); i++) {
@@ -188,11 +188,11 @@ public class writeReport {
 		}
 		else if (choice == 3){
 			try{
-			FileWriter writechoicethree = new FileWriter("Camp Application and Management System/StaffReport(non-CommitteeMembers).txt");
+			FileWriter writechoicethree = new FileWriter("report/StaffReport(non-CommitteeMembers).txt");
 			System.out.println("These are the non-Committee Member attendees:");
 			writechoicethree.write("These are the non-Committee Member attendees:\n");
 			for (int i = 0; i < allStudents.size(); i++) {
-				if (allStudents.get(i).getCommitteeCampID() == null) {
+				if (allStudents.get(i).getCommitteeCampID() == null || !allStudents.get(i).getCommitteeCampID().equals(reportcamp.getCampID())) {
 					writechoicethree.write((i + 1) + ")" + allStudents.get(i).getUserName());
 					System.out.println((i + 1) + ")" + allStudents.get(i).getUserName());
 					System.out.print(" Role: Attendee\n");

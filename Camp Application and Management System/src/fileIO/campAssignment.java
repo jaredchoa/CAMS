@@ -67,7 +67,7 @@ public class campAssignment {
 			FileWriter fw  = new FileWriter(csvFile);
 			fw.write("studentID,campID\n");
 			
-			System.out.println("size: " + campData.getcampData().size());
+			//System.out.println("size: " + campData.getcampData().size());
 			for (int i=0; i<campData.getcampData().size(); i++) {
 				StringBuilder line = new StringBuilder();
 				String id = new String("C" + (i+1));
