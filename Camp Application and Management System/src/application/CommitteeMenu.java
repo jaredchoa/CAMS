@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 import Handlers.CommitteeHandler;
 import Handlers.CommitteeStaffEnquiryHandler;
+import HandlersInterfaces.*;
+import applicationInterfaces.CommitteeMenuInterface;
 import common.util.ReadChecker;
 import fileIO.writeReport;
 import model.*;
@@ -13,13 +15,14 @@ import java.util.*;
 	/** 
 	 * class provides the menu for the committee member
 	 */ 
-public class CommitteeMenu {
-
+public class CommitteeMenu implements CommitteeMenuInterface{
+	public static CommitteeHandlerInterface committeeHandler = new CommitteeHandler();
+	public static CommitteeStaffEnquiryHandlerInterface committeeStaffEnquiry = new CommitteeStaffEnquiryHandler();
 	
 	/** 
 	 * @param student student object
 	 */ 
-	protected static void displayMenu(Student student) {
+	public void displayMenu(Student student) {
 
 		boolean logout = false;
 
@@ -155,19 +158,19 @@ public class CommitteeMenu {
 			switch (subchoice) {
 
 			case 1:
-				CommitteeHandler.SubmitSuggestion(scanner, student, mainApp.suggestionData, mainApp.campData);
+				committeeHandler.SubmitSuggestion(scanner, student, mainApp.suggestionData, mainApp.campData);
 				printSuggestions(suggestionList);
 
 				break;
 
 			case 2:
-				CommitteeHandler.EditSuggestion(scanner, student, mainApp.suggestionData);
+				committeeHandler.EditSuggestion(scanner, student, mainApp.suggestionData);
 				printSuggestions(suggestionList);
 
 				break;
 
 			case 3:
-				CommitteeHandler.DeleteSuggestion(scanner, student, mainApp.suggestionData, mainApp.campData);
+				committeeHandler.DeleteSuggestion(scanner, student, mainApp.suggestionData, mainApp.campData);
 				printSuggestions(suggestionList);
 
 				break;
@@ -265,7 +268,7 @@ public class CommitteeMenu {
 				switch (subchoice) {
 
 				case 1:
-					CommitteeStaffEnquiryHandler.ReplyEnquiry(scanner, mainApp.enquiryData);
+					committeeStaffEnquiry.ReplyEnquiry(scanner, mainApp.enquiryData);
 					break;
 
 				case 2:

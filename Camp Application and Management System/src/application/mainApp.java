@@ -9,6 +9,9 @@ import controller.*;
 import controller.manager.*;
 import fileIO.*;
 import common.util.*;
+import HandlersInterfaces.*;
+import applicationInterfaces.CommitteeMenuInterface;
+import applicationInterfaces.StaffMenuInterface;
 /**
  * Private constructor for the mainApp class. Initializes data managers and reads data from CSV files.
  */
@@ -105,7 +108,7 @@ public class mainApp {
 
 			switch (choice) {
 			case 1:
-				login(scanner);
+				login(scanner, new CommitteeMenu(), new StaffMenu());
 				break;
 			case 2:
 				exit = true;
@@ -124,7 +127,7 @@ public class mainApp {
 		scanner.close();
 	}
 	
-	private void login(Scanner scanner) {
+	private void login(Scanner scanner, CommitteeMenuInterface committeeMenu, StaffMenuInterface staffMenu) {
 		System.out.print("Enter your userID (CASE-SENSITIVE): ");
 		String userID = scanner.nextLine();
 
@@ -148,7 +151,7 @@ public class mainApp {
 					if (selection == 1)
 					{
 						System.out.println("You have selected to view as Committee Member!");
-						CommitteeMenu.displayMenu(currentUser);
+						committeeMenu.displayMenu(currentUser);
 						//display committeeMemberMenu(currentUser)
 					}
 					else
@@ -177,7 +180,7 @@ public class mainApp {
 
 				System.out.println("Welcome " + currentUser.getUserName());
 				//display staffMenu(currentUser)
-				StaffMenu.displayMenu(currentUser);
+				staffMenu.displayMenu(currentUser);
 			}
 			else System.out.println("Invalid password.");
 		}

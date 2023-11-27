@@ -2,7 +2,7 @@ package Handlers;
 
 import java.util.Scanner;
 
-import application.mainApp;
+import HandlersInterfaces.StaffSuggestionHandlerInterface;
 import common.model.SuggestionStatus;
 import controller.manager.SuggestionManager;
 import model.Staff;
@@ -11,14 +11,14 @@ import model.Suggestion;
 /** 
  * class to handle staff suggestions
  */
-public class StaffSuggestionHandler {
+public class StaffSuggestionHandler implements StaffSuggestionHandlerInterface {
 
 	/** 
 	 * @param scanner scanner object
 	 * @param staff staff object
 	 * @param SuggestionData SuggestionManager object
 	 */
-	public static void ApproveSuggestion(Scanner scanner, Staff staff, SuggestionManager SuggestionData) {
+	public void ApproveSuggestion(Scanner scanner, Staff staff, SuggestionManager SuggestionData) {
 		System.out.println("Input ID of suggestion you wish to approve: ");
 		String suggestionID = scanner.nextLine();
 		Suggestion suggestionApprove = SuggestionData.getSuggestionByID(suggestionID);

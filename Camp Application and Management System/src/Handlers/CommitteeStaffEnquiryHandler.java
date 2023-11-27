@@ -2,21 +2,21 @@ package Handlers;
 
 import java.util.Scanner;
 
-import application.mainApp;
+import HandlersInterfaces.CommitteeStaffEnquiryHandlerInterface;
 import controller.manager.EnquiryManager;
 import model.Enquiry;
 
 /**
  * enquiry handler
  */
-public class CommitteeStaffEnquiryHandler {
+public class CommitteeStaffEnquiryHandler implements CommitteeStaffEnquiryHandlerInterface{
 
 	
 	/** 
 	 * @param scanner scanner object
 	 * @param EnquiryData  EnquiryManager object
 	 */
-	public static void ReplyEnquiry(Scanner scanner, EnquiryManager EnquiryData) {
+	public void ReplyEnquiry(Scanner scanner, EnquiryManager EnquiryData) {
 		System.out.print("Input the ID of enquiry you wish to reply: ");
 
 		String enquiryIDSubmit = scanner.nextLine();

@@ -3,6 +3,7 @@ package Handlers;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import HandlersInterfaces.CommitteeHandlerInterface;
 import application.mainApp;
 import controller.manager.CampManager;
 import controller.manager.SuggestionManager;
@@ -13,14 +14,14 @@ import model.Suggestion;
 /** 
  * class to handle committee members
  */ 
-public class CommitteeHandler  {
+public class CommitteeHandler implements CommitteeHandlerInterface{
 
 	/** 
 	 * @param scanner scanner object
 	 * @param student student object
 	 * @param SuggestionData SuggestionManager object
 	 */
-	public static void EditSuggestion(Scanner scanner, Student student, SuggestionManager SuggestionData) {
+	public void EditSuggestion(Scanner scanner, Student student, SuggestionManager SuggestionData) {
 		// TODO Auto-generated method stub
 		System.out.print("Input the ID of suggestion you wish to edit: ");
 
@@ -63,7 +64,7 @@ public class CommitteeHandler  {
 	 * @param SuggestionData SuggestionManager object
 	 * @param CampData CampManager object
 	 */
-	public static void DeleteSuggestion(Scanner scanner, Student student, SuggestionManager SuggestionData,
+	public void DeleteSuggestion(Scanner scanner, Student student, SuggestionManager SuggestionData,
 			CampManager CampData) {
 		// TODO Auto-generated method stub
 		String campcommID = student.getCommitteeCampID();
@@ -113,7 +114,7 @@ public class CommitteeHandler  {
 	 * @param SuggestionData SuggestionManager object
 	 * @param CampData CampManager object
 	 */
-	public static void SubmitSuggestion(Scanner scanner, Student student, SuggestionManager SuggestionData,
+	public void SubmitSuggestion(Scanner scanner, Student student, SuggestionManager SuggestionData,
 			CampManager CampData) {
 		// TODO Auto-generated method stub
 		String campcommID = student.getCommitteeCampID();

@@ -2,8 +2,9 @@ package application;
 
 import java.util.Scanner;
 
-import Handlers.StaffCampHandler;
-import Handlers.StaffSuggestionHandler;
+import Handlers.*;
+import HandlersInterfaces.*;
+import applicationInterfaces.StaffMenuInterface;
 import model.*;
 import common.util.*;
 import common.model.*;
@@ -14,13 +15,15 @@ import fileIO.*;
 /** 
 	 * class provides the menu for the Staff
 	 */ 
-public class StaffMenu {
-
+public class StaffMenu implements StaffMenuInterface{
+	public static StaffCampHandlerInterface staffCampHandler = new StaffCampHandler();
+	public static CommitteeStaffEnquiryHandlerInterface committeeStaffEnquiry = new CommitteeStaffEnquiryHandler();
+	public static StaffSuggestionHandlerInterface staffSuggestionHandler = new StaffSuggestionHandler();
 	
 	/** 
 	 * @param staff staff object
 	 */
-	protected static void displayMenu(Staff staff) {
+	public void displayMenu(Staff staff) {
 		boolean logout = false;
 		Scanner scanner = new Scanner(System.in);
 
@@ -118,7 +121,7 @@ public class StaffMenu {
 
 				switch(subchoice) {
 				case 1:
-					StaffCampHandler.CreateCamp(scanner, staff, mainApp.campData);
+					staffCampHandler.CreateCamp(scanner, staff, mainApp.campData);
 					break;
 				case 2:
 					mainApp.campData.printCampData(staff, true);
@@ -161,10 +164,10 @@ public class StaffMenu {
 				staff.viewCreatedCamp();
 				break;
 			case 2:
-				StaffCampHandler.EditCamp(scanner, staff);
+				staffCampHandler.EditCamp(scanner, staff);
 				break;
 				case 3:
-				StaffCampHandler.DeleteCamp(scanner, staff, mainApp.campData);
+				staffCampHandler.DeleteCamp(scanner, staff, mainApp.campData);
 				break;
 			case 4:
 				break;
@@ -204,7 +207,7 @@ public class StaffMenu {
 			subchoice = ReadChecker.checkInt();
 			
 			if(subchoice==1) {
-				StaffSuggestionHandler.ApproveSuggestion(scanner, staff, mainApp.suggestionData);
+				staffSuggestionHandler.ApproveSuggestion(scanner, staff, mainApp.suggestionData);
 			}
 			else if(subchoice==2) {
 				break;

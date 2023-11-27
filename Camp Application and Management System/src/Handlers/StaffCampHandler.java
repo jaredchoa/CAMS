@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
+import HandlersInterfaces.StaffCampHandlerInterface;
 import application.mainApp;
 import common.model.Faculty;
 import common.util.ReadChecker;
@@ -14,14 +15,14 @@ import model.Staff;
 /** 
  * class to handle staff members
  */
-public class StaffCampHandler {
+public class StaffCampHandler implements StaffCampHandlerInterface {
 
 	/** 
 	 * @param scanner scanner object
 	 * @param staff staff object
 	 * @param CampData CampManager object
 	 */
-	public static void CreateCamp(Scanner scanner, Staff staff, CampManager CampData) {
+	public void CreateCamp(Scanner scanner, Staff staff, CampManager CampData) {
 		if (staff.getCreatedCamp() != null) {
 			System.out.println("You have already created a camp.");
 			return;
@@ -128,7 +129,7 @@ public class StaffCampHandler {
 	 * @param scanner scanner object
 	 * @param staff staff object
 	 */
-	public static void EditCamp(Scanner scanner, Staff staff) {
+	public void EditCamp(Scanner scanner, Staff staff) {
 		int subchoice = 0;
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");  
 
@@ -288,7 +289,7 @@ public class StaffCampHandler {
 	 * @param staff staff object
 	 * @param CampData camp manager object
 	 */
-	public static void DeleteCamp(Scanner scanner, Staff staff, CampManager CampData) {
+	public void DeleteCamp(Scanner scanner, Staff staff, CampManager CampData) {
 		System.out.println("You are deleting the camp you have created.\n"
 				+ "Do you want to continue? [Y/n]");
 		String confirm = scanner.nextLine();
