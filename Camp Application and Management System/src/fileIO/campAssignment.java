@@ -77,7 +77,7 @@ public class campAssignment {
 					line.append(student.getUserID() + ",");
 					line.append(camp.getCampID() + "\n");
 				}
-				System.out.println(line.toString());
+				//System.out.println(line.toString());
 				fw.write(line.toString());
 			}
 			fw.close();

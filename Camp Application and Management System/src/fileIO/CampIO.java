@@ -83,7 +83,7 @@ public class CampIO {
 			File csvFile = new File(path);
 			FileWriter fw  = new FileWriter(csvFile);
 			fw.write("ID,Name,Faculty,Location,description,campStartDate,campEndDate,regCloseDate,totalSlots,committeeSlots,visibility,staffID\n");
-			System.out.println("size: " + campData.getcampData().size());
+			//System.out.println("size: " + campData.getcampData().size());
 			for (int i=0; i<campData.getcampData().size(); i++) {
 				StringBuilder line = new StringBuilder();
 
@@ -105,7 +105,7 @@ public class CampIO {
 				line.append(camp.getStaffInCharge().getUserID());
 				line.append("\n");
 				
-				System.out.println(line.toString());
+				//System.out.println(line.toString());
 				fw.write(line.toString());
 			}
 		   fw.close();

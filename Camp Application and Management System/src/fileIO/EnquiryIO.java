@@ -83,7 +83,7 @@ public class EnquiryIO {
 				line.append(enquiry.getCampID()+",");
 				line.append("\n");
 				
-				System.out.println(line.toString());
+				//System.out.println(line.toString());
 				fw.write(line.toString());
 			}
 		   fw.close();
