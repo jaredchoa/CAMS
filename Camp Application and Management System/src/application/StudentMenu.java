@@ -6,8 +6,15 @@ import common.util.ReadChecker;
 import controller.manager.StudentEnquiryHandler;
 import model.*;
 
+/** 
+	 * class provides the menu for the student
+	 */ 
 public class StudentMenu {
 
+	
+	/** 
+	 * @param student student object
+	 */
 	protected static void displayMenu(Student student) {
 
 		boolean logout = false;
@@ -123,6 +130,11 @@ public class StudentMenu {
 
 	}
 
+	
+	/** 
+	 * @param student student object
+	 * @param scanner scanner object
+	 */
 	public static void ViewAllCamps(Student student, Scanner scanner) {
 
 		mainApp.campData.printCampData(student, false); // false being view all camps available to students' faculty
@@ -184,6 +196,11 @@ public class StudentMenu {
 
 	}
 
+	
+	/** 
+	 * @param student student object
+	 * @param scanner scanner object
+	 */
 	public static void ViewOwnCamps(Student student, Scanner scanner) {
 
 		mainApp.campData.printCampData(student, true); // true being view student camps only
@@ -285,6 +302,11 @@ public class StudentMenu {
 
 	}
 
+	
+	/** 
+	 * @param student student object
+	 * @param scanner scanner object
+	 */
 	public static void ViewEnquiries(Student student, Scanner scanner) {
 
 		if (student.getStudentEnquiries().isEmpty())

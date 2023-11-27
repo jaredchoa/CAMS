@@ -2,7 +2,9 @@ package common.util;
 
 import java.util.Scanner;
 
-
+/** 
+	 * class provides exception handling for reading input
+	 */ 
 public class ReadChecker {
 	
 	public static int checkInt() {		

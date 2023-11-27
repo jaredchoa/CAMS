@@ -10,8 +10,15 @@ import model.*;
 
 import java.util.*;
 
+	/** 
+	 * class provides the menu for the committee member
+	 */ 
 public class CommitteeMenu {
 
+	
+	/** 
+	 * @param student studen object
+	 */ 
 	protected static void displayMenu(Student student) {
 
 		boolean logout = false;
@@ -104,6 +111,10 @@ public class CommitteeMenu {
 
 	}
 
+	
+	/** 
+	 * @param student Student object
+	 */
 	private static void viewDetailsofCamp(Student student) {
 
 		String campcommID = student.getCommitteeCampID(); // dont need exception because if theres no commcampID user
@@ -113,6 +124,12 @@ public class CommitteeMenu {
 
 	}
 
+	
+	/** 
+	 * @param student Student object
+	 * @param scanner Scanner object
+	 */
+	 
 	private static void viewSuggestions(Student student, Scanner scanner) {
 
 		ArrayList<Suggestion> suggestionList = student.getCommitteeSuggestions();
@@ -169,6 +186,10 @@ public class CommitteeMenu {
 
 	}
 
+	
+	/** 
+	 * @param SuggestionList ArrayList of Suggestion objects
+	 */
 	private static void printSuggestions(ArrayList<Suggestion> SuggestionList) {
 
 		if (SuggestionList.isEmpty()) {
@@ -204,6 +225,11 @@ public class CommitteeMenu {
 
 	}
 
+	
+	/** 
+	 * @param student Student object
+	 * @param scanner Scanner object
+	 */
 	private static void viewEnquiries(Student student, Scanner scanner) {
 
 		String campcommID = student.getCommitteeCampID();
@@ -256,7 +282,10 @@ public class CommitteeMenu {
 		}
 
 	}
-
+	/** 
+	 * @param student Student object
+	 * @param scanner Scanner object
+	 */
 	public static void generateListofAttendingStudents(Student student, Scanner scanner) { // still need to add in the
 																							// write file part
 

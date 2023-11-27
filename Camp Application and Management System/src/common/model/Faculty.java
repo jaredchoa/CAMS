@@ -1,5 +1,7 @@
 package common.model;
-
+/** 
+	 * class enum for the different faculties
+	 */ 
 public enum Faculty {
 	SCSE,
 	ADM,

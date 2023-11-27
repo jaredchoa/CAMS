@@ -11,8 +11,15 @@ import java.time.*;
 import java.time.format.*;
 import fileIO.*;
 
-
+/** 
+	 * class provides the menu for the Staff
+	 */ 
 public class StaffMenu {
+
+	
+	/** 
+	 * @param staff staff object
+	 */
 	protected static void displayMenu(Staff staff) {
 		boolean logout = false;
 		Scanner scanner = new Scanner(System.in);
@@ -74,6 +81,11 @@ public class StaffMenu {
 		}
 	}
 
+	
+	/** 
+	 * @param staff staff object
+	 * @param scanner scanner object
+	 */
 	private static void generateReport(Staff staff, Scanner scanner) {
 		int choice = 0;
 		System.out.println("Please choose an option:");
@@ -85,6 +97,12 @@ public class StaffMenu {
 	}
 
 
+	
+	/** 
+	 * @param staff staff object
+	 * @param scanner scanner object
+	 */
+	 
 	public static void ViewAllCamps(Staff staff, Scanner scanner){
 		//mainApp.campData.printCampData(staff, true);		//false being view all camps available to students' faculty
 		
@@ -120,6 +138,12 @@ public class StaffMenu {
 			}
 	}
 	
+	
+	/** 
+	 * @param staff staff object
+	 * @param scanner scanner object
+	 */
+	 
 	private static void manageOwnCamp(Staff staff, Scanner scanner) {		
 		int subchoice=0;
 		
@@ -153,6 +177,12 @@ public class StaffMenu {
 	}
 
 		
+	
+	/** 
+	 * @param staff staff object
+	 * @param scanner scanner object
+	 */
+	 
 	public static void ViewAllSuggestions(Staff staff, Scanner scanner) {
 		Camp staffCamp = staff.getCreatedCamp();
 		if(staffCamp.getSuggestionList()==null) {
@@ -186,6 +216,12 @@ public class StaffMenu {
 		}
 	}
 	
+	
+	/** 
+	 * @param staff staff object
+	 * @param scanner scanner object
+	 */
+	 
 	private static void ViewEnquiries(Staff staff, Scanner scanner) {
 		Scanner in = new Scanner(System.in);
 		Camp staffCamp = staff.getCreatedCamp();
